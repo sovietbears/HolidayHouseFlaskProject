@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- 100082948 -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Kapalua Maui Beach House</title>
+    <link type="text/css" rel="stylesheet" href="../../static/css/styles.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="../../static/javascript/script.js"></script>
+</head>
+
+<body onload="sendList({{allStartDate}}, {{allEndDate}})">
+    <header>
+        <a href="/"> <img src="../../static/images/logo.png" alt="Kapalua Maui Beach House" /> </a>
+        <nav>
+            <ul>
+                <li id="currentPage"><a href="/">Home</a><span> | </span></li>
+                <li><a href="detailsPage">Details</a><span> | </span></li>
+                <li><a href="directionsPage">Directions</a><span> | </span></li>
+                <li><a href="nearbyPage">Nearby</a><span> | </span></li>
+                <li><a href="reviewsPage">Reviews</a><span> | </span></li>
+                <li><a href="rentalPage">Rental</a></li>
+                <li id="bookDisplay">
+                    <button onclick="openForm()">Book Now</button>
+                </li>
+            </ul>
+        </nav>
+        <!-- Form that will display -->
+        <div id="form" onclick="externalClick()">
+            <div id="formContent">
+                <div class="close" onclick="closeForm()">&#10006;</div>
+                <form id="bookStay" action="rentalPage" method="post">
+                    <fieldset>
+                        <legend>Book Your Stay</legend>
+                        <div>
+                            <label for="name">Name:</label>
+                            <input id="name" name="name" type="text" placeholder="George Clooney" required="required" /> </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input id="email" name="email" type="email" placeholder="george@email.com" required="required" /> </div>
+                        <div>
+                            <label for="startDate">Check In:</label>
+                            <input id="startDate" type="date" name="startDate" required="required" min="2016-12-01" max="2020-12-01" /> <span id="overlap">This date has already been booked!</span> </div>
+                        <div>
+                            <label for="endDate">Check Out:</label>
+                            <input id="endDate" type="date" name="endDate" required="required" min="2016-12-01" max="2020-12-01" /> </div>
+                        <textarea id="notes" name="notes" placeholder="Additional notes..."></textarea>
+                        <div>
+                            <label for="antiSpam">{{generatedAnti}}</label>
+                            <input id="antiSpam" name="antiSpam" type="text" placeholder="Example: five" required="required" /> </div>
+                        <input id="bookButton" type="submit" form="bookStay" value="Book Now" disabled="disabled" />
+                        <div id="price">
+                            <h3>Nights: <span id="nights">0</span></h3>
+                            <h3>Total Price: £<span id="changingPrice">0</span></h3> </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div id="banner"> <img src="../../static/images/homepage/banner.jpg" alt="House Overview" /> </div>
+    <div id="reviewSection">
+        <div class="wrapper">
+            <h1>"Only the perfect place to spend your holiday, and the rest of your life."</h1>
+            <p>Federica Coda</p>
+        </div>
+    </div>
+    <div id="mainSection">
+        <div class="wrapper">
+            <div class="lColumn">
+                <p> Nestled in one of Hawaii’s largest nature preserves and Maui’s premier resort destination is this award-winning architecturally designed home available to book during any season for hosting a fabulous dinner party to having the perfect honeymoon for you and your loved one. Overlooking the white sand beach of Oneloa Bay in Maui, the fully furnished luxury #3 Kapalua Place residence is one of only four exclusive beachfront homes located in a private gated oceanfront subdivision. </p>
+                <p> Environmental stewardship has and will continue to be a guiding principle of this one-of-a-kind resort community. Surrounded by the protected West Maui rainforest and two marine sanctuaries. Kapalua Resort is a special place. As it continues to preserve this naturally beautiful destination, future plans will offer guests and residents opportunities to enjoy areas of the Kapalua Resort previously unavailable. </p>
+                <p> Award-winning Hawaiian architect, Jeffery Long of Long and Associates, impeccably designed this contemporary architectural masterpiece blending the unparalleled natural beauty of the location with a truly innovative structure creating an imaginative expression of modern luxury with breath-taking vision. Take a look at the video below to view just how this little piece of heaven was made. </p>
+            </div>
+            <div class="rColumn"> <img src="../../static/images/homepage/homepage-description.jpg" alt="House Front Door" /> </div>
+            <iframe src="https://www.youtube.com/embed/54rFvRE0NZQ" allowfullscreen></iframe>
+        </div>
+    </div>
+    <footer>
+        <div class="wrapper">
+            <section>
+                <h2>Contact Lisa</h2>
+                <p> <a href="mailto:lisatemp@kapalua.com">lisatemp@kapalua.com</a>
+                    <br /> +55 662-65431 </p>
+                <p> Helden Residences Kapalua Bay
+                    <br /> Eighteen Bay Drive. Lahaina H1 96754 </p>
+                <!-- Social Media Icons -->
+                <a href="https://en-gb.facebook.com/"><img src="../../static/images/social%20media%20icons/facebook.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/?lang=en"><img src="../../static/images/social%20media%20icons/twitter.png" alt="Twitter" /></a>
+                <a href="https://www.instagram.com/?hl=en"><img src="../../static/images/social%20media%20icons/instagram.png" alt="Instagram" /></a>
+            </section>
+            <section>
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="detailsPage">Details</a></li>
+                    <li><a href="directionsPage">Directions</a></li>
+                    <li><a href="nearbyPage">Nearby</a></li>
+                    <li><a href="reviewsPage">Reviews</a></li>
+                    <li><a href="rentalPage">Rental</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Representation</h2>
+                <p> Represented by AJarjis Estates,
+                    <br /> in cooperation with Kapula Bay: </p> <img src="../../static/images/Kapula%20Bay.png" id="signature" alt="Kapula Bay Signature" /> </section>
+            <p id="copyright">&copy; Kapalua Beach House | Website design by Ali Jarjis</p>
+        </div>
+    </footer>
+</body>
+
+</html>
